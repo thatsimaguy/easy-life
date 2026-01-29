@@ -114,13 +114,8 @@ export default function Home() {
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
+                className="group relative bg-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:bg-black/50 hover:scale-[1.02]"
               >
-                {/* Gradient overlay on hover */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}
-                />
-
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-4">
@@ -139,13 +134,8 @@ export default function Home() {
             {upcomingApps.map((app) => (
               <div
                 key={app.title}
-                className="group relative bg-black/30 backdrop-blur-2xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10"
+                className="group relative bg-black/30 backdrop-blur-2xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10 hover:bg-black/40"
               >
-                {/* Gradient overlay on hover */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-2xl`}
-                />
-
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-4">
