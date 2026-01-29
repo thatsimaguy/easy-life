@@ -114,7 +114,7 @@ export default function Home() {
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:bg-black/50 hover:scale-[1.02]"
+                className="group relative bg-transparent backdrop-blur-2xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
               >
                 {/* Content */}
                 <div className="relative z-10">
@@ -134,7 +134,7 @@ export default function Home() {
             {upcomingApps.map((app) => (
               <div
                 key={app.title}
-                className="group relative bg-black/30 backdrop-blur-2xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10 hover:bg-black/40"
+                className="group relative bg-transparent backdrop-blur-2xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10"
               >
                 {/* Content */}
                 <div className="relative z-10">
