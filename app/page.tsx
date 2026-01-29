@@ -69,10 +69,6 @@ export default function Home() {
       {/* Subtle top glow */}
       <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-white/[0.03] to-transparent rounded-full blur-3xl transition-opacity duration-1000 ${isNight ? "opacity-100" : "opacity-0"}`} />
 
-      {/* Animated gradient orbs - more subtle */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-
       {/* Floating particles */}
       <FloatingParticles />
 
@@ -118,12 +114,8 @@ export default function Home() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-5">
+                  <div className="mb-5">
                     <div className="text-6xl sm:text-7xl transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3">{app.icon}</div>
-                    <div className="px-2.5 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                      <span className="text-green-400/80 text-[10px] font-medium uppercase tracking-wider">Live</span>
-                    </div>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-light text-white mb-2 tracking-tight">{app.title}</h3>
                   <p className="text-white/40 text-xs sm:text-sm leading-relaxed font-light">{app.description}</p>
@@ -157,11 +149,8 @@ export default function Home() {
               >
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-5">
+                  <div className="mb-5">
                     <div className="text-6xl sm:text-7xl opacity-20 group-hover:opacity-30 transition-all duration-700">{app.icon}</div>
-                    <div className="px-2.5 py-1 bg-white/[0.03] border border-white/[0.06] rounded-full">
-                      <span className="text-white/20 text-[10px] uppercase tracking-widest font-medium">Soon</span>
-                    </div>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-light text-white/20 mb-2 tracking-tight group-hover:text-white/30 transition-colors duration-700">{app.title}</h3>
                   <p className="text-white/15 text-xs sm:text-sm leading-relaxed font-light group-hover:text-white/20 transition-colors duration-700">{app.description}</p>
