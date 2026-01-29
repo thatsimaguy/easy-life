@@ -169,16 +169,17 @@ export default function Home() {
   );
 }
 
-// Floating particles - more subtle
+// Floating particles - subtle glowing orbs
 function FloatingParticles() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
+  const particles = Array.from({ length: 25 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 1.5 + 0.5,
-    opacity: Math.random() * 0.1 + 0.02,
+    size: Math.random() * 4 + 2,
+    opacity: Math.random() * 0.08 + 0.02,
     duration: Math.random() * 30 + 25,
     delay: Math.random() * 15,
+    blur: Math.random() * 8 + 4,
   }));
 
   return (
@@ -186,7 +187,7 @@ function FloatingParticles() {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-gradient-to-br from-blue-200 to-purple-300 animate-float-slow"
+          className="absolute rounded-full bg-white/80 animate-float-slow"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -195,6 +196,7 @@ function FloatingParticles() {
             opacity: p.opacity,
             animationDuration: `${p.duration}s`,
             animationDelay: `${p.delay}s`,
+            filter: `blur(${p.blur}px)`,
           }}
         />
       ))}
