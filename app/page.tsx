@@ -168,13 +168,14 @@ export default function Home() {
 
 // Floating particles - visible smooth orbs
 function FloatingParticles() {
-  const particles = Array.from({ length: 10 }, (_, i) => ({
+  const sizes = [8, 12, 16, 25, 35, 50, 10, 18, 30, 15, 22, 40, 12, 28];
+  const particles = Array.from({ length: 14 }, (_, i) => ({
     id: i,
     x: (i * 11 + 5) % 95,
     y: (i * 13 + 10) % 90,
-    size: 20 + (i % 3) * 8,
-    opacity: 0.2 + (i % 3) * 0.05,
-    duration: 10 + (i % 4) * 2,
+    size: sizes[i],
+    opacity: 0.12 + (i % 4) * 0.03,
+    duration: 10 + (i % 5) * 2,
   }));
 
   return (
@@ -190,7 +191,7 @@ function FloatingParticles() {
             height: `${p.size}px`,
             opacity: p.opacity,
             animationDuration: `${p.duration}s`,
-            background: 'radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0) 70%)',
+            background: 'radial-gradient(circle, rgba(200,200,200,0.5) 0%, rgba(200,200,200,0.15) 40%, rgba(200,200,200,0) 70%)',
           }}
         />
       ))}
