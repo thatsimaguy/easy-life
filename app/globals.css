@@ -56,27 +56,18 @@ body {
   animation: twinkle ease-in-out infinite;
 }
 
-/* Floating particles - smooth circular motion */
+/* Floating particles - smooth gentle movement */
 @keyframes float-slow {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(15px, -15px);
+  0%, 100% {
+    transform: translateY(0px);
   }
   50% {
-    transform: translate(0, -30px);
-  }
-  75% {
-    transform: translate(-15px, -15px);
-  }
-  100% {
-    transform: translate(0, 0);
+    transform: translateY(-20px);
   }
 }
 
 .animate-float-slow {
-  animation: float-slow linear infinite;
+  animation: float-slow ease-in-out infinite;
 }
 
 /* Pulse slow animation */

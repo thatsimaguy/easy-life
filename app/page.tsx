@@ -66,9 +66,6 @@ export default function Home() {
       {/* Subtle blue tint during day */}
       <div className={`absolute inset-0 bg-gradient-to-b from-blue-800/20 via-blue-900/10 to-blue-950/5 transition-opacity duration-1000 ${!isNight ? "opacity-100" : "opacity-0"}`} />
 
-      {/* Subtle top glow */}
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-white/[0.03] to-transparent rounded-full blur-3xl transition-opacity duration-1000 ${isNight ? "opacity-100" : "opacity-0"}`} />
-
       {/* Floating particles */}
       <FloatingParticles />
 
@@ -171,15 +168,15 @@ export default function Home() {
 
 // Floating particles - smooth glowing orbs
 function FloatingParticles() {
-  const particles = Array.from({ length: 12 }, (_, i) => ({
+  const particles = Array.from({ length: 8 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 6 + 3,
-    opacity: Math.random() * 0.1 + 0.03,
-    duration: Math.random() * 35 + 30,
-    delay: Math.random() * 20,
-    blur: Math.random() * 10 + 6,
+    size: Math.random() * 8 + 4,
+    opacity: Math.random() * 0.15 + 0.08,
+    duration: Math.random() * 25 + 20,
+    delay: Math.random() * 15,
+    blur: Math.random() * 12 + 8,
   }));
 
   return (
@@ -187,7 +184,7 @@ function FloatingParticles() {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-white/80 animate-float-slow will-change-transform"
+          className="absolute rounded-full bg-white animate-float-slow"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -197,6 +194,7 @@ function FloatingParticles() {
             animationDuration: `${p.duration}s`,
             animationDelay: `${p.delay}s`,
             filter: `blur(${p.blur}px)`,
+            willChange: 'transform',
           }}
         />
       ))}
