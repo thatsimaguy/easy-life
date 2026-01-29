@@ -69,6 +69,16 @@ export default function Home() {
       {/* Floating particles */}
       <FloatingParticles />
 
+      {/* Home button - top left */}
+      <a
+        href="/"
+        className="fixed top-6 left-6 z-50 backdrop-blur-xl bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 rounded-2xl p-3 transition-all duration-300 hover:scale-105"
+      >
+        <svg className="w-5 h-5 text-white/60 hover:text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      </a>
+
       {/* Main content */}
       <div className="w-full max-w-7xl relative z-10 flex flex-col">
         {/* Header */}
