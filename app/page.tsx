@@ -16,7 +16,6 @@ export default function Home() {
       title: "Easy Weather",
       description: "Beautiful weather forecasts",
       url: "https://easy-weather-app.vercel.app",
-      gradient: "from-blue-500/20 to-purple-600/20",
       icon: "🌤️",
       status: "live",
     },
@@ -28,37 +27,31 @@ export default function Home() {
       title: "Easy Notes",
       description: "Simple note-taking",
       icon: "📝",
-      gradient: "from-green-500/20 to-emerald-600/20",
     },
     {
       title: "Easy Tasks",
       description: "Minimalist to-dos",
       icon: "✓",
-      gradient: "from-orange-500/20 to-red-600/20",
     },
     {
       title: "Easy Timer",
       description: "Focus & stopwatch",
       icon: "⏱️",
-      gradient: "from-purple-500/20 to-pink-600/20",
     },
     {
       title: "Easy Links",
       description: "Bookmark manager",
       icon: "🔗",
-      gradient: "from-cyan-500/20 to-blue-600/20",
     },
     {
       title: "Easy Calc",
       description: "Beautiful calculator",
       icon: "🔢",
-      gradient: "from-indigo-500/20 to-blue-600/20",
     },
     {
       title: "Easy Convert",
       description: "Unit converter",
       icon: "🔄",
-      gradient: "from-teal-500/20 to-green-600/20",
     },
   ];
 
@@ -66,7 +59,7 @@ export default function Home() {
   const isNight = hours < 6 || hours >= 19;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0c] flex items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0a0a0c] flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0c] via-[#0d0d12] to-[#0a0a0c] transition-all duration-1000" />
 
@@ -74,39 +67,43 @@ export default function Home() {
       <div className={`absolute inset-0 bg-gradient-to-b from-blue-800/20 via-blue-900/10 to-blue-950/5 transition-opacity duration-1000 ${!isNight ? "opacity-100" : "opacity-0"}`} />
 
       {/* Subtle top glow */}
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-white/[0.02] to-transparent rounded-full blur-3xl transition-opacity duration-1000 ${isNight ? "opacity-100" : "opacity-0"}`} />
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-white/[0.03] to-transparent rounded-full blur-3xl transition-opacity duration-1000 ${isNight ? "opacity-100" : "opacity-0"}`} />
+
+      {/* Animated gradient orbs - more subtle */}
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
       {/* Floating particles */}
       <FloatingParticles />
 
       {/* Main content */}
-      <div className="w-full max-w-7xl relative z-10">
+      <div className="w-full max-w-7xl relative z-10 flex flex-col">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <h1 className="text-6xl font-light text-white tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+        <div className="text-center mb-12 lg:mb-16">
+          <div className="inline-block mb-3">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extralight text-white tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
               Easy Life
             </h1>
           </div>
-          <p className="text-white/40 text-lg mb-8">A collection of simple, beautiful tools</p>
+          <p className="text-white/30 text-base sm:text-lg font-light mb-6">Simple, beautiful tools for everyday life</p>
 
-          {/* Time - subtle and minimal */}
-          <div className="flex items-center justify-center gap-3 text-white/30 text-sm">
-            <div className="flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6l4 2" />
+          {/* Time - more refined */}
+          <div className="flex items-center justify-center gap-2 text-white/20 text-xs sm:text-sm">
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" strokeWidth="1.5" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6v6l4 2" />
               </svg>
               <span>{time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
             <span>·</span>
-            <span>{time.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+            <span>{time.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
           </div>
         </div>
 
-        {/* Apps Grid - Horizontal Card Style */}
-        <div className="mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        {/* Apps Grid */}
+        <div className="flex-1 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 max-w-7xl mx-auto">
             {/* Live Apps */}
             {apps.map((app) => (
               <a
@@ -114,18 +111,40 @@ export default function Home() {
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-transparent backdrop-blur-2xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
+                className="group relative backdrop-blur-xl rounded-3xl p-6 sm:p-7 border border-white/[0.08] transition-all duration-700 hover:border-white/20 hover:scale-[1.02] bg-white/[0.02] hover:bg-white/[0.04]"
               >
+                {/* Subtle glow on hover */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/[0.03] group-hover:to-purple-500/[0.03] transition-all duration-700" />
+
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-5xl transition-transform duration-500 group-hover:scale-110">{app.icon}</div>
-                    <div className="px-2 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="text-6xl sm:text-7xl transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3">{app.icon}</div>
+                    <div className="px-2.5 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                      <span className="text-green-400/80 text-[10px] font-medium uppercase tracking-wider">Live</span>
                     </div>
                   </div>
-                  <h3 className="text-lg font-light text-white mb-1 tracking-tight">{app.title}</h3>
-                  <p className="text-white/40 text-xs leading-relaxed">{app.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-light text-white mb-2 tracking-tight">{app.title}</h3>
+                  <p className="text-white/40 text-xs sm:text-sm leading-relaxed font-light">{app.description}</p>
+
+                  {/* Launch indicator */}
+                  <div className="mt-5 flex items-center text-white/20 group-hover:text-white/50 transition-colors duration-500">
+                    <span className="text-[11px] uppercase tracking-widest font-medium">Launch</span>
+                    <svg
+                      className="ml-1.5 w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </a>
             ))}
@@ -134,18 +153,18 @@ export default function Home() {
             {upcomingApps.map((app) => (
               <div
                 key={app.title}
-                className="group relative bg-transparent backdrop-blur-2xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10"
+                className="group relative backdrop-blur-xl rounded-3xl p-6 sm:p-7 border border-white/[0.04] cursor-not-allowed transition-all duration-700 hover:border-white/[0.08] bg-white/[0.01]"
               >
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-5xl opacity-30 group-hover:opacity-50 transition-opacity duration-500">{app.icon}</div>
-                    <div className="px-2 py-0.5 bg-white/5 border border-white/10 rounded-full">
-                      <span className="text-white/30 text-[10px] uppercase tracking-wider">Soon</span>
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="text-6xl sm:text-7xl opacity-20 group-hover:opacity-30 transition-all duration-700">{app.icon}</div>
+                    <div className="px-2.5 py-1 bg-white/[0.03] border border-white/[0.06] rounded-full">
+                      <span className="text-white/20 text-[10px] uppercase tracking-widest font-medium">Soon</span>
                     </div>
                   </div>
-                  <h3 className="text-lg font-light text-white/30 mb-1 tracking-tight group-hover:text-white/50 transition-colors">{app.title}</h3>
-                  <p className="text-white/20 text-xs leading-relaxed group-hover:text-white/30 transition-colors">{app.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-light text-white/20 mb-2 tracking-tight group-hover:text-white/30 transition-colors duration-700">{app.title}</h3>
+                  <p className="text-white/15 text-xs sm:text-sm leading-relaxed font-light group-hover:text-white/20 transition-colors duration-700">{app.description}</p>
                 </div>
               </div>
             ))}
@@ -153,7 +172,7 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="text-center text-xs text-white/20">
+        <footer className="text-center text-[11px] text-white/15 tracking-wider uppercase font-light mt-auto pt-8">
           Making life easier, one app at a time
         </footer>
       </div>
@@ -161,16 +180,16 @@ export default function Home() {
   );
 }
 
-// Floating particles
+// Floating particles - more subtle
 function FloatingParticles() {
-  const particles = Array.from({ length: 15 }, (_, i) => ({
+  const particles = Array.from({ length: 20 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    opacity: Math.random() * 0.15 + 0.05,
-    duration: Math.random() * 25 + 20,
-    delay: Math.random() * 10,
+    size: Math.random() * 1.5 + 0.5,
+    opacity: Math.random() * 0.1 + 0.02,
+    duration: Math.random() * 30 + 25,
+    delay: Math.random() * 15,
   }));
 
   return (
