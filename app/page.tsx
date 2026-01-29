@@ -41,12 +41,11 @@ export default function Home() {
       <div className="w-full max-w-5xl relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-block mb-4">
+          <div className="inline-block mb-8">
             <h1 className="text-6xl font-light text-white tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
               Easy Life
             </h1>
           </div>
-          <p className="text-white/40 text-lg mb-8">Your projects in one place</p>
 
           {/* Time - subtle and minimal */}
           <div className="flex items-center justify-center gap-3 text-white/30 text-sm">
