@@ -166,17 +166,17 @@ export default function Home() {
   );
 }
 
-// Floating particles - smooth glowing orbs
+// Floating particles - visible smooth orbs
 function FloatingParticles() {
-  const particles = Array.from({ length: 8 }, (_, i) => ({
+  const particles = Array.from({ length: 6 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 8 + 4,
-    opacity: Math.random() * 0.15 + 0.08,
-    duration: Math.random() * 25 + 20,
-    delay: Math.random() * 15,
-    blur: Math.random() * 12 + 8,
+    size: Math.random() * 12 + 8,
+    opacity: Math.random() * 0.2 + 0.3,
+    duration: 20 + i * 2,
+    delay: i * 4,
+    blur: Math.random() * 4 + 3,
   }));
 
   return (
@@ -194,7 +194,7 @@ function FloatingParticles() {
             animationDuration: `${p.duration}s`,
             animationDelay: `${p.delay}s`,
             filter: `blur(${p.blur}px)`,
-            willChange: 'transform',
+            transform: 'translate3d(0, 0, 0)',
           }}
         />
       ))}
