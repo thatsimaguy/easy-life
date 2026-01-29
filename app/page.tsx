@@ -14,7 +14,7 @@ export default function Home() {
   const apps = [
     {
       title: "Easy Weather",
-      description: "Beautiful weather forecasts for anywhere in the world",
+      description: "Beautiful weather forecasts",
       url: "https://easy-weather-app.vercel.app",
       gradient: "from-blue-500/20 to-purple-600/20",
       icon: "🌤️",
@@ -26,27 +26,39 @@ export default function Home() {
   const upcomingApps = [
     {
       title: "Easy Notes",
-      description: "Simple, beautiful note-taking",
+      description: "Simple note-taking",
       icon: "📝",
       gradient: "from-green-500/20 to-emerald-600/20",
     },
     {
       title: "Easy Tasks",
-      description: "Minimalist to-do lists",
+      description: "Minimalist to-dos",
       icon: "✓",
       gradient: "from-orange-500/20 to-red-600/20",
     },
     {
       title: "Easy Timer",
-      description: "Focus timer and stopwatch",
+      description: "Focus & stopwatch",
       icon: "⏱️",
       gradient: "from-purple-500/20 to-pink-600/20",
     },
     {
       title: "Easy Links",
-      description: "Bookmark manager made simple",
+      description: "Bookmark manager",
       icon: "🔗",
       gradient: "from-cyan-500/20 to-blue-600/20",
+    },
+    {
+      title: "Easy Calc",
+      description: "Beautiful calculator",
+      icon: "🔢",
+      gradient: "from-indigo-500/20 to-blue-600/20",
+    },
+    {
+      title: "Easy Convert",
+      description: "Unit converter",
+      icon: "🔄",
+      gradient: "from-teal-500/20 to-green-600/20",
     },
   ];
 
@@ -68,9 +80,9 @@ export default function Home() {
       <FloatingParticles />
 
       {/* Main content */}
-      <div className="w-full max-w-6xl relative z-10">
+      <div className="w-full max-w-7xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <h1 className="text-6xl font-light text-white tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
               Easy Life
@@ -92,70 +104,58 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Apps Section */}
-        <div className="mb-20">
-          <h2 className="text-white/40 text-xs uppercase tracking-wider mb-6 text-center">Available Now</h2>
-          <div className="flex justify-center">
+        {/* Apps Grid - Horizontal Card Style */}
+        <div className="mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {/* Live Apps */}
             {apps.map((app) => (
               <a
                 key={app.url}
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-3xl p-10 border border-white/10 transition-all duration-700 hover:border-white/20 max-w-md w-full"
+                className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
               >
                 {/* Gradient overlay on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl`}
+                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}
                 />
 
                 {/* Content */}
-                <div className="relative z-10 text-center">
-                  <div className="text-8xl mb-6 transition-transform duration-500 group-hover:scale-110">{app.icon}</div>
-                  <h3 className="text-3xl font-light text-white mb-3 tracking-tight">{app.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed mb-6">{app.description}</p>
-
-                  {/* Subtle indicator */}
-                  <div className="flex items-center justify-center text-white/30 group-hover:text-white/60 transition-colors duration-500">
-                    <span className="text-xs">Launch app</span>
-                    <svg
-                      className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-5xl transition-transform duration-500 group-hover:scale-110">{app.icon}</div>
+                    <div className="px-2 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    </div>
                   </div>
+                  <h3 className="text-lg font-light text-white mb-1 tracking-tight">{app.title}</h3>
+                  <p className="text-white/40 text-xs leading-relaxed">{app.description}</p>
                 </div>
               </a>
             ))}
-          </div>
-        </div>
 
-        {/* Coming Soon Section */}
-        <div className="mb-16">
-          <h2 className="text-white/40 text-xs uppercase tracking-wider mb-6 text-center">Coming Soon</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {/* Coming Soon Apps */}
             {upcomingApps.map((app) => (
               <div
                 key={app.title}
-                className="relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-2xl p-6 border border-white/5 cursor-not-allowed group"
+                className="group relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10"
               >
                 {/* Gradient overlay on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-50 transition-opacity duration-700 rounded-2xl`}
+                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-2xl`}
                 />
 
-                <div className="relative z-10 text-center">
-                  <div className="text-4xl mb-3 opacity-40 group-hover:opacity-60 transition-opacity">{app.icon}</div>
-                  <h3 className="text-white/30 text-sm font-light mb-1 group-hover:text-white/50 transition-colors">{app.title}</h3>
-                  <p className="text-white/20 text-xs group-hover:text-white/30 transition-colors">{app.description}</p>
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-5xl opacity-30 group-hover:opacity-50 transition-opacity duration-500">{app.icon}</div>
+                    <div className="px-2 py-0.5 bg-white/5 border border-white/10 rounded-full">
+                      <span className="text-white/30 text-[10px] uppercase tracking-wider">Soon</span>
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-light text-white/30 mb-1 tracking-tight group-hover:text-white/50 transition-colors">{app.title}</h3>
+                  <p className="text-white/20 text-xs leading-relaxed group-hover:text-white/30 transition-colors">{app.description}</p>
                 </div>
               </div>
             ))}
