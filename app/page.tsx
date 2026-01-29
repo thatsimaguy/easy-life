@@ -10,13 +10,43 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const sites = [
+  // Available apps
+  const apps = [
     {
       title: "Easy Weather",
-      description: "Check the weather anywhere in the world",
+      description: "Beautiful weather forecasts for anywhere in the world",
       url: "https://easy-weather-app.vercel.app",
       gradient: "from-blue-500/20 to-purple-600/20",
       icon: "🌤️",
+      status: "live",
+    },
+  ];
+
+  // Upcoming app ideas
+  const upcomingApps = [
+    {
+      title: "Easy Notes",
+      description: "Simple, beautiful note-taking",
+      icon: "📝",
+      gradient: "from-green-500/20 to-emerald-600/20",
+    },
+    {
+      title: "Easy Tasks",
+      description: "Minimalist to-do lists",
+      icon: "✓",
+      gradient: "from-orange-500/20 to-red-600/20",
+    },
+    {
+      title: "Easy Timer",
+      description: "Focus timer and stopwatch",
+      icon: "⏱️",
+      gradient: "from-purple-500/20 to-pink-600/20",
+    },
+    {
+      title: "Easy Links",
+      description: "Bookmark manager made simple",
+      icon: "🔗",
+      gradient: "from-cyan-500/20 to-blue-600/20",
     },
   ];
 
@@ -38,14 +68,15 @@ export default function Home() {
       <FloatingParticles />
 
       {/* Main content */}
-      <div className="w-full max-w-5xl relative z-10">
+      <div className="w-full max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-block mb-8">
+          <div className="inline-block mb-4">
             <h1 className="text-6xl font-light text-white tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
               Easy Life
             </h1>
           </div>
+          <p className="text-white/40 text-lg mb-8">A collection of simple, beautiful tools</p>
 
           {/* Time - subtle and minimal */}
           <div className="flex items-center justify-center gap-3 text-white/30 text-sm">
@@ -61,52 +92,79 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Sites Grid */}
-        <div className="flex justify-center mb-16">
-          {sites.map((site) => (
-            <a
-              key={site.url}
-              href={site.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-3xl p-10 border border-white/10 transition-all duration-700 hover:border-white/20 max-w-md w-full"
-            >
-              {/* Gradient overlay on hover */}
+        {/* Apps Section */}
+        <div className="mb-20">
+          <h2 className="text-white/40 text-xs uppercase tracking-wider mb-6 text-center">Available Now</h2>
+          <div className="flex justify-center">
+            {apps.map((app) => (
+              <a
+                key={app.url}
+                href={app.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-3xl p-10 border border-white/10 transition-all duration-700 hover:border-white/20 max-w-md w-full"
+              >
+                {/* Gradient overlay on hover */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl`}
+                />
+
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <div className="text-8xl mb-6 transition-transform duration-500 group-hover:scale-110">{app.icon}</div>
+                  <h3 className="text-3xl font-light text-white mb-3 tracking-tight">{app.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-6">{app.description}</p>
+
+                  {/* Subtle indicator */}
+                  <div className="flex items-center justify-center text-white/30 group-hover:text-white/60 transition-colors duration-500">
+                    <span className="text-xs">Launch app</span>
+                    <svg
+                      className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Coming Soon Section */}
+        <div className="mb-16">
+          <h2 className="text-white/40 text-xs uppercase tracking-wider mb-6 text-center">Coming Soon</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {upcomingApps.map((app) => (
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${site.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl`}
-              />
+                key={app.title}
+                className="relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-2xl p-6 border border-white/5 cursor-not-allowed group"
+              >
+                {/* Gradient overlay on hover */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${app.gradient} opacity-0 group-hover:opacity-50 transition-opacity duration-700 rounded-2xl`}
+                />
 
-              {/* Content */}
-              <div className="relative z-10 text-center">
-                <div className="text-8xl mb-6 transition-transform duration-500 group-hover:scale-110">{site.icon}</div>
-                <h2 className="text-3xl font-light text-white mb-3 tracking-tight">{site.title}</h2>
-                <p className="text-white/50 text-sm leading-relaxed mb-6">{site.description}</p>
-
-                {/* Subtle indicator */}
-                <div className="flex items-center justify-center text-white/30 group-hover:text-white/60 transition-colors duration-500">
-                  <span className="text-xs">View project</span>
-                  <svg
-                    className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                <div className="relative z-10 text-center">
+                  <div className="text-4xl mb-3 opacity-40 group-hover:opacity-60 transition-opacity">{app.icon}</div>
+                  <h3 className="text-white/30 text-sm font-light mb-1 group-hover:text-white/50 transition-colors">{app.title}</h3>
+                  <p className="text-white/20 text-xs group-hover:text-white/30 transition-colors">{app.description}</p>
                 </div>
               </div>
-            </a>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Footer */}
         <footer className="text-center text-xs text-white/20">
-          Built with Next.js
+          Making life easier, one app at a time
         </footer>
       </div>
     </div>
