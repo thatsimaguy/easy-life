@@ -169,17 +169,17 @@ export default function Home() {
   );
 }
 
-// Floating particles - subtle glowing orbs
+// Floating particles - smooth glowing orbs
 function FloatingParticles() {
-  const particles = Array.from({ length: 25 }, (_, i) => ({
+  const particles = Array.from({ length: 12 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 4 + 2,
-    opacity: Math.random() * 0.08 + 0.02,
-    duration: Math.random() * 30 + 25,
-    delay: Math.random() * 15,
-    blur: Math.random() * 8 + 4,
+    size: Math.random() * 6 + 3,
+    opacity: Math.random() * 0.1 + 0.03,
+    duration: Math.random() * 35 + 30,
+    delay: Math.random() * 20,
+    blur: Math.random() * 10 + 6,
   }));
 
   return (
@@ -187,7 +187,7 @@ function FloatingParticles() {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-white/80 animate-float-slow"
+          className="absolute rounded-full bg-white/80 animate-float-slow will-change-transform"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
