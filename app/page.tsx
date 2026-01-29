@@ -114,7 +114,7 @@ export default function Home() {
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
+                className="group relative bg-black/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
               >
                 {/* Gradient overlay on hover */}
                 <div
@@ -139,7 +139,7 @@ export default function Home() {
             {upcomingApps.map((app) => (
               <div
                 key={app.title}
-                className="group relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10"
+                className="group relative bg-black/30 backdrop-blur-2xl rounded-2xl p-6 border border-white/5 cursor-not-allowed transition-all duration-500 hover:border-white/10"
               >
                 {/* Gradient overlay on hover */}
                 <div
