@@ -18,17 +18,7 @@ export default function Home() {
       url: "https://easy-weather-app.vercel.app",
       gradient: "from-blue-500/20 to-purple-600/20",
       icon: "🌤️",
-      category: "Tools",
     },
-  ];
-
-  const quickLinks = [
-    { name: "GitHub", url: "https://github.com", icon: "💻" },
-    { name: "Gmail", url: "https://gmail.com", icon: "📧" },
-    { name: "YouTube", url: "https://youtube.com", icon: "📺" },
-    { name: "Twitter", url: "https://twitter.com", icon: "🐦" },
-    { name: "Reddit", url: "https://reddit.com", icon: "🔴" },
-    { name: "LinkedIn", url: "https://linkedin.com", icon: "💼" },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -59,7 +49,7 @@ export default function Home() {
       <FloatingParticles />
 
       {/* Main content */}
-      <div className="w-full max-w-7xl relative z-10">
+      <div className="w-full max-w-6xl relative z-10">
         {/* Header with time */}
         <div className="text-center mb-8">
           <div className="text-white/40 text-sm mb-2">{time.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</div>
@@ -70,7 +60,7 @@ export default function Home() {
         </div>
 
         {/* Search bar */}
-        <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-12">
+        <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-16">
           <div className="relative">
             <input
               type="text"
@@ -90,28 +80,8 @@ export default function Home() {
           </div>
         </form>
 
-        {/* Quick Links */}
-        <div className="mb-12">
-          <h2 className="text-white/40 text-xs uppercase tracking-wider mb-4 text-center">Quick Access</h2>
-          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-            {quickLinks.map((link) => (
-              <a
-                key={link.url}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-5 py-3 bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 rounded-xl transition-all"
-              >
-                <span className="text-2xl">{link.icon}</span>
-                <span className="text-white/70 group-hover:text-white text-sm transition-colors">{link.name}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-
         {/* Main Sites Section */}
-        <div className="mb-8">
-          <h2 className="text-white/40 text-xs uppercase tracking-wider mb-6 text-center">Your Sites</h2>
+        <div className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {sites.map((site) => (
               <a
@@ -128,12 +98,7 @@ export default function Home() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-6xl">{site.icon}</div>
-                    <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/40 text-xs">
-                      {site.category}
-                    </span>
-                  </div>
+                  <div className="text-6xl mb-4">{site.icon}</div>
                   <h2 className="text-2xl font-light text-white mb-2 tracking-tight">{site.title}</h2>
                   <p className="text-white/50 text-sm mb-6">{site.description}</p>
 
@@ -158,61 +123,26 @@ export default function Home() {
               </a>
             ))}
 
-            {/* Add more placeholder */}
-            <div className="relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-3xl p-8 border border-white/5 border-dashed hover:border-white/10 transition-all group cursor-pointer">
-              <div className="flex flex-col items-center justify-center h-full text-center">
-                <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-all">
-                  <svg className="w-8 h-8 text-white/30 group-hover:text-white/50 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                </div>
-                <p className="text-white/30 text-sm group-hover:text-white/50 transition-colors">Add new site</p>
-              </div>
-            </div>
-
             {/* Coming soon placeholders */}
             <div className="relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-3xl p-8 border border-white/5 border-dashed">
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-4xl mb-4 opacity-30">✨</div>
-                <p className="text-white/30 text-sm text-center">More tools<br />coming soon</p>
+                <p className="text-white/30 text-sm text-center">More projects<br />coming soon</p>
+              </div>
+            </div>
+
+            <div className="relative bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl rounded-3xl p-8 border border-white/5 border-dashed">
+              <div className="flex flex-col items-center justify-center h-full">
+                <div className="text-4xl mb-4 opacity-30">✨</div>
+                <p className="text-white/30 text-sm text-center">More projects<br />coming soon</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Info Cards Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-8">
-          <div className="bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="text-2xl">📊</div>
-              <h3 className="text-white/40 text-xs uppercase tracking-wider">Quick Stats</h3>
-            </div>
-            <p className="text-white text-2xl font-light">{sites.length}</p>
-            <p className="text-white/50 text-sm">Active sites</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="text-2xl">⚡</div>
-              <h3 className="text-white/40 text-xs uppercase tracking-wider">Quick Search</h3>
-            </div>
-            <p className="text-white text-lg font-light">Ctrl/Cmd + K</p>
-            <p className="text-white/50 text-sm">Search anything</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="text-2xl">🎯</div>
-              <h3 className="text-white/40 text-xs uppercase tracking-wider">Productivity</h3>
-            </div>
-            <p className="text-white text-lg font-light">All in one place</p>
-            <p className="text-white/50 text-sm">Stay organized</p>
-          </div>
-        </div>
-
         {/* Footer */}
-        <footer className="text-center text-xs text-white/20 mt-12">
-          Easy Life Dashboard · Your personal homepage
+        <footer className="text-center text-xs text-white/20">
+          Easy Life · Your personal dashboard
         </footer>
       </div>
     </div>
