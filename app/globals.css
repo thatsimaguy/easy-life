@@ -25,6 +25,21 @@ body {
   color: #0a0a0a;
 }
 
+/* Gradient animation for logo */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 8s ease infinite;
+}
+
 /* Star twinkle animation */
 @keyframes twinkle {
   0%, 100% {

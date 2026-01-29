@@ -41,7 +41,11 @@ export default function Home() {
       <div className="w-full max-w-5xl relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <h1 className="text-5xl font-light text-white mb-4 tracking-tight">Easy Life</h1>
+          <div className="inline-block mb-4">
+            <h1 className="text-6xl font-light text-white tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+              Easy Life
+            </h1>
+          </div>
           <p className="text-white/40 text-lg mb-8">Your projects in one place</p>
 
           {/* Time - subtle and minimal */}
@@ -59,14 +63,14 @@ export default function Home() {
         </div>
 
         {/* Sites Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+        <div className="flex justify-center mb-16">
           {sites.map((site) => (
             <a
               key={site.url}
               href={site.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-3xl p-8 border border-white/10 transition-all duration-700 hover:border-white/20"
+              className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-3xl p-10 border border-white/10 transition-all duration-700 hover:border-white/20 max-w-md w-full"
             >
               {/* Gradient overlay on hover */}
               <div
@@ -74,13 +78,13 @@ export default function Home() {
               />
 
               {/* Content */}
-              <div className="relative z-10">
-                <div className="text-7xl mb-6 transition-transform duration-500 group-hover:scale-110">{site.icon}</div>
+              <div className="relative z-10 text-center">
+                <div className="text-8xl mb-6 transition-transform duration-500 group-hover:scale-110">{site.icon}</div>
                 <h2 className="text-3xl font-light text-white mb-3 tracking-tight">{site.title}</h2>
-                <p className="text-white/50 text-sm leading-relaxed">{site.description}</p>
+                <p className="text-white/50 text-sm leading-relaxed mb-6">{site.description}</p>
 
                 {/* Subtle indicator */}
-                <div className="mt-6 flex items-center text-white/30 group-hover:text-white/60 transition-colors duration-500">
+                <div className="flex items-center justify-center text-white/30 group-hover:text-white/60 transition-colors duration-500">
                   <span className="text-xs">View project</span>
                   <svg
                     className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-500"
@@ -99,21 +103,6 @@ export default function Home() {
               </div>
             </a>
           ))}
-
-          {/* Coming soon placeholders */}
-          <div className="relative bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-xl rounded-3xl p-8 border border-white/5 border-dashed">
-            <div className="flex flex-col items-center justify-center h-full text-center py-8">
-              <div className="text-5xl mb-4 opacity-20">✨</div>
-              <p className="text-white/20 text-sm">Coming soon</p>
-            </div>
-          </div>
-
-          <div className="relative bg-gradient-to-br from-white/[0.03] to-white/[0.01] backdrop-blur-xl rounded-3xl p-8 border border-white/5 border-dashed">
-            <div className="flex flex-col items-center justify-center h-full text-center py-8">
-              <div className="text-5xl mb-4 opacity-20">✨</div>
-              <p className="text-white/20 text-sm">Coming soon</p>
-            </div>
-          </div>
         </div>
 
         {/* Footer */}
