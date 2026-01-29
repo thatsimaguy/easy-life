@@ -3,7 +3,7 @@ export default function Home() {
     {
       title: "Easy Weather",
       description: "Check the weather anywhere in the world",
-      url: "https://easy-weather-nine.vercel.app",
+      url: "https://easy-weather-app.vercel.app",
       color: "from-blue-500 to-purple-600",
     },
   ];
